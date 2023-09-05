@@ -16,7 +16,7 @@ async function index(req, res) {
 
 async function show(req, res) {
     try {
-        
+        res.status(201).json(await Products.findById(req.params.id))
     } catch (error) {
         res.status(400).json({ error: error.message })
     }

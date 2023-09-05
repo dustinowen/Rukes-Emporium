@@ -11,7 +11,9 @@ Ruke's Emporium <i>(an e-commerce site)</i></h2>
 
 * Shopping cart
     
+* FE Component Tree
 
+<img src='./assets//imgs/FE.comp.tree.png' />
 
 <h4>MODELS:</h4>
 
