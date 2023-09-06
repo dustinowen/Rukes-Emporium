@@ -1,5 +1,3 @@
-// import React from 'react'
-
 export default function Product(inventoryItem) {
   const { prodName, prodCategory, prodImage, prodCost } = inventoryItem.data;
   return (

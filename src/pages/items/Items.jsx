@@ -1,4 +1,3 @@
-import React from "react";
 import './items.css'
 import { INVENTORY } from '../../temp_itemDB'
 import Product from './Product'

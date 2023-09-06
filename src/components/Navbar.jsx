@@ -34,19 +34,19 @@ export default function Example() {
                     <Link to='/items'
                       className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
-                      Food & Treats
+                      Food
                     </Link>
                     <a
                       href="#"
                       className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
-                      Toys & Chews
+                      Treats & Toys
                     </a>
                     <a
                       href="#"
                       className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
-                      Leashes & Harnesses
+                      Supplies
                     </a>
                   </div>
                 </div>

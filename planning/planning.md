@@ -15,6 +15,18 @@ Ruke's Emporium <i>(an e-commerce site)</i></h2>
 
 <img src='./assets//imgs/FE.comp.tree.png' />
 
+
+<h4> USER STORIES </h4>
+
+* As a user, I want a user friendly site that carries food, treats and toys for my dog. (MVP)
+* As a user, I want to see items categorized by type of product. (MVP)
+* As a user, I want be able to add/remove items from my shopping cart as I find them. (MVP)
+* As a user, I want to find a new favorite site that I can access both on my desktop, and mobile device with no content layout issues. (MVP) 
+* As a user, I want to have a personal account to keep track of personal information so that I do not have to enter it every time. (IB)
+* As a user, I want to have a secure method of payment through a trusted service, such as PayPal or Stripe. (IB)
+* As a user, I want to see item reviews from other users who have purchased the item previously. (IB)
+
+
 <h4>MODELS:</h4>
 
 * product:
@@ -27,13 +39,18 @@ Ruke's Emporium <i>(an e-commerce site)</i></h2>
     * item
     * qty
 
-
 <h5>ICEBOX MODELS</h5>
+
+* product
+    * individual pages with item description/information
 
 * user
     * user id
     * contact information (address, email, phone)
     * order history (order id, order contents)
+
+* product reviews
+    * user reviews of product
 
 * payment:
     * payment type
@@ -42,6 +59,3 @@ Ruke's Emporium <i>(an e-commerce site)</i></h2>
     * order (ref order model)
     * order number (id)
     * order timestamp
-
-* reviews
-    * user reviews of product
