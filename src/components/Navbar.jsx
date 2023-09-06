@@ -20,16 +20,16 @@ export default function Example() {
                 <div className="flex-shrink-0">
                   
                   <img
-                    className="h-8 w-auto"
+                    className="h-12 w-auto"
                     src={LOGO}
                     alt="Ruke's Emporium"
                   />
                 </div>
-                  <section className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Ruke's Emporium</section>
+                  {/* <section className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Ruke's Emporium</section> */}
                 <div className="hidden lg:ml-6 lg:block">
                   <div className="flex space-x-4">
                     {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                    <Link to='/' className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Home </Link>
+                    <Link to='/' className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Ruke's Emporium </Link>
                     
                     <Link to='/items'
                       className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
