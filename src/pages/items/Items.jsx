@@ -1,7 +1,7 @@
 import './items.css'
 import { INVENTORY } from '../../temp_itemDB'
 import Product from './Product'
-// import { CartContext } from "../../context/cart-context";
+
 
 
 
@@ -10,15 +10,12 @@ export default function Items() {
     <div className='inventory-display'>
 
       <div className='inventory-title-container'>
-    <h1> Page displaying items for sale:</h1>
+    <h1> Parent comp to 'Product' displaying items for sale:</h1>
       </div>
 
       <div className='items'>
         {INVENTORY.map((inventoryItem) => (<Product data={inventoryItem} />))}
 
-      
-      
-      
       </div>
       
       </div>

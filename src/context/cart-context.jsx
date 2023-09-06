@@ -1,27 +1,35 @@
-// import { createContext } from 'react'
+import { useState, useContext, createContext } from 'react'
+// import { INVENTORY } from '../temp_itemDB'
 
-// const CartContext = createContext()
+const ShoppingCartContext = createContext();
+// created a shopping cart context with a provider (ShoppingCartProvider)
+// provider holds cart state + functions to add/remove items
 
-// const getDefaultCart = () => {
-//     let cart = {}
-//     for (let i = 1; i < PRODUCTS.length + 1; i++){
-//         cart[i] = 0
-//     }
-//     return cart
-// }
+export function ShoppingCartProvider() {
+    // maybe a prop missing? 
+    //do I need to declare children for the useContext?
+
+    const [cart, setCart] = useState([]);
+    // --> error I am getting: cannot destructure prop of cart as it is undefined; have attempted to start state with set values to test a define cart but no difference
 
 
-// export const CartContextProvider = (props) => {
-//     const [cartItems, setCartItems] = useState(getDefaultCart())
+    const addToCart = (item) => {
+        //passing 'id' from Product.jsx as prop 'item'
+        setCart([...cart, item])
+    }
 
-//     const addToCart = (itemId) => {
-//         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 })) 
-//     }
-//     const removeFromCart = (itemId) => {
-//         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 })) 
-//     }
-    
-//     const contextValue = { cartItems, addToCart, removeFromCart }
+    const removeFromCart = (itemId) => {
+        const updatedCart = cart.filter((item) => item.id !== itemId)
+        setCart(updatedCart)
+    }
 
-//     return <CartContextProvider value={contextValue}>{props.children}</CartContextProvider>
-// }
+    return (
+        <ShoppingCartContext.Provider value={{ cart, addToCart, removeFromCart }}></ShoppingCartContext.Provider>
+    )
+}
+
+
+export function useShoppingCart() {
+    return useContext(ShoppingCartContext)
+}
+// created useShoppingCart hook to access the context values in other components for adding items

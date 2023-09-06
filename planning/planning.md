@@ -22,9 +22,11 @@ Ruke's Emporium <i>(an e-commerce site)</i></h2>
 * As a user, I want to see items categorized by type of product. (MVP)
 * As a user, I want be able to add/remove items from my shopping cart as I find them. (MVP)
 * As a user, I want to find a new favorite site that I can access both on my desktop, and mobile device with no content layout issues. (MVP) 
+* As a user, I want to be able to search for my favorite product on the store's site. (IB)
 * As a user, I want to have a personal account to keep track of personal information so that I do not have to enter it every time. (IB)
-* As a user, I want to have a secure method of payment through a trusted service, such as PayPal or Stripe. (IB)
 * As a user, I want to see item reviews from other users who have purchased the item previously. (IB)
+* As a user, I want to have a secure method of payment through a trusted service, such as PayPal or Stripe. (IB2)
+* As a user, I want my shopping cart to be saved when I leave the site (if I was logged in to my account) (IB2)
 
 
 <h4>MODELS:</h4>

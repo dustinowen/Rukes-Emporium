@@ -1,5 +1,13 @@
+import { useContext } from "react";
+import { ShoppingCartProvider } from "../../context/cart-context";
+
 export default function Product(inventoryItem) {
-  const { prodName, prodCategory, prodImage, prodCost } = inventoryItem.data;
+  //passing inventoryItem as prop -> destructure array -> object
+  //display each item in the return -> use id to track item added to cart
+
+  const { id, prodName, prodCategory, prodImage, prodCost } = inventoryItem.data;
+  const addToCart = useContext(ShoppingCartProvider)
+  
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -14,7 +22,10 @@ export default function Product(inventoryItem) {
               <h3 className="mt-4 text-sm text-gray-700">{prodName}</h3>
               <p className="mt-1 text-lg font-medium text-gray-900">
                 {prodCost}
-                      </p><button className='addToCartButton'>add to cart</button>{/* LOOK UP CODE TO ALIGN RIGHT */}
+            </p>
+            
+            <button className='addToCartButton' onClick={() => addToCart(id)}>add to cart</button>
+        {/* LOOK UP TAILWIND CODE TO ALIGN BUTTON RIGHT */}
             </div>
               </section>
               

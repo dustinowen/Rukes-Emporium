@@ -1,28 +1,25 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Example from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import Home from "./pages/home/Home";
 import Items from "./pages/items/Items";
-import Cart from "./pages/cart/cart";
-import { CartContext } from './context/cart-context'
-// import { CartContextProvider } from "./context/cart-context";
+import ShoppingCart from './pages/cart/cart'
+import { ShoppingCartProvider } from "./context/cart-context";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      {/* <CartContext.Provider value={{ eventNames, favNums: [1,2,3], whateverIWantToPass }}> */}
+      {/* <ShoppingCartProvider> */}
         <Router>
-          {/* <Navbar /> */}
-          <Example />
-
+          <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/items" element={<Items />} />
-            <Route path="/cart" element={<Cart />} />
+          <Route path="/items" element={<Items />} />
+            <Route path="/cart" element={<ShoppingCart />} />
           </Routes>
         </Router>
-      {/* </CartContext.Provider> */}
+      {/* </ShoppingCartProvider> */}
     </div>
   );
 }
-export default App;
+
