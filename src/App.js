@@ -1,14 +1,23 @@
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navbar } from "./components/Navbar";
+import Home from './pages/home/Home'
+import Items from "./pages/products/Items";
+import { Cart } from './pages/cart/cart'
+
 
 function App() {
   return (
-    <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
-      <p className="text-3xl text-gray-700 font-bold mb-5">
-        Welcome!
-      </p>
-      <p className="text-gray-500 text-lg">
-        React and Tailwind CSS in action
-      </p>
+    <div className="App">
+      <Router>
+        <Navbar />
+        {/* <Example /> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/items" element={<Items />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
