@@ -1,12 +1,12 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import LOGO from '../assets/imgs/RE_logo.png'
+import LOGO from "../assets/imgs/RE_logo.png";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
@@ -18,36 +18,47 @@ export default function Navbar() {
             <div className="relative flex h-16 items-center justify-between">
               <div className="flex items-center px-2 lg:px-0">
                 <div className="flex-shrink-0">
-                  
                   <img
                     className="h-12 w-auto"
                     src={LOGO}
                     alt="Ruke's Emporium"
                   />
                 </div>
-                  {/* <section className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Ruke's Emporium</section> */}
+                {/* <section className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Ruke's Emporium</section> */}
                 <div className="hidden lg:ml-6 lg:block">
                   <div className="flex space-x-4">
                     {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                    <Link to='/' className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Ruke's Emporium </Link>
-                    
-                    <Link to='/items'
+                    <Link
+                      to="/"
                       className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
-                      Food
+                      Ruke's Emporium
                     </Link>
-                    <a
-                      href="#"
+
+                    <Link
+                      to="/items/grub"
                       className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
-                      Treats & Toys
-                    </a>
-                    <a
-                      href="#"
+                      Grub & Nibbles
+                    </Link>
+                    <Link
+                      to="/items/playthings"
+                      className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                    >
+                      Playthings
+                    </Link>
+                    <Link
+                      to="/items/threads"
+                      className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                    >
+                      Threads
+                    </Link>
+                    <Link
+                      to="/items/supplies"
                       className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
                       Supplies
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -58,7 +69,10 @@ export default function Navbar() {
                   </label>
                   <div className="relative">
                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                      <MagnifyingGlassIcon
+                        className="h-5 w-5 text-gray-400"
+                        aria-hidden="true"
+                      />
                     </div>
                     <input
                       id="search"
@@ -71,7 +85,6 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="flex lg:hidden">
-                
                 {/* Mobile menu button */}
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
@@ -122,8 +135,8 @@ export default function Navbar() {
                             <a
                               href="#"
                               className={classNames(
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
                               Your Profile
@@ -135,8 +148,8 @@ export default function Navbar() {
                             <a
                               href="#"
                               className={classNames(
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
                               Settings
@@ -148,8 +161,8 @@ export default function Navbar() {
                             <a
                               href="#"
                               className={classNames(
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
                               Sign out
@@ -206,8 +219,12 @@ export default function Navbar() {
                   />
                 </div>
                 <div className="ml-3">
-                  <div className="text-base font-medium text-white">Tom Cook</div>
-                  <div className="text-sm font-medium text-gray-400">tom@example.com</div>
+                  <div className="text-base font-medium text-white">
+                    Tom Cook
+                  </div>
+                  <div className="text-sm font-medium text-gray-400">
+                    tom@example.com
+                  </div>
                 </div>
                 <button
                   type="button"
@@ -246,5 +263,5 @@ export default function Navbar() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }
