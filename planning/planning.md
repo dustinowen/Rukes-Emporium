@@ -1,5 +1,6 @@
-<h2>P3 Planning:<br/>
-Ruke's Emporium <i>(an e-commerce site)</i></h2>
+<h2><u>P3 Planning:</u></h2>
+<h4>Ruke's Emporium <i>(an e-commerce site)</i></h4>
+<p>
 
 * Home page: welcome screen, branding/logo
     * Nav bar with categories as links to product pages
@@ -11,12 +12,17 @@ Ruke's Emporium <i>(an e-commerce site)</i></h2>
 
 * Shopping cart
     
-* FE Component Tree
 
-<img src='./assets//imgs/FE.comp.tree.png' />
+<h4><u>FE Component Tree:</u></h4>
+
+<img src='./assets//imgs/FE.comp.tree.png' height=400px />
+
+<h4><u>DATABASE Structure:</u></h4>
+
+<img src='./assets//imgs/DB.structure.png' height=400px/>>
 
 
-<h4> USER STORIES </h4>
+<h4><u>USER STORIES</u></h4>
 
 * As a user, I want a user friendly site that carries food, treats and toys for my dog. (MVP)
 * As a user, I want to see items categorized by type of product. (MVP)
@@ -29,7 +35,7 @@ Ruke's Emporium <i>(an e-commerce site)</i></h2>
 * As a user, I want my shopping cart to be saved when I leave the site (if I was logged in to my account) (IB2)
 
 
-<h4>MODELS:</h4>
+<h4><u>MODELS:</u></h4>
 
 * product:
     * name (string)
@@ -41,7 +47,7 @@ Ruke's Emporium <i>(an e-commerce site)</i></h2>
     * item
     * qty
 
-<h5>ICEBOX MODELS</h5>
+<h5><u>ICEBOX MODELS</u></h5>
 
 * product
     * individual pages with item description/information

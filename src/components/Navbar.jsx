@@ -16,11 +16,11 @@ export default function Example() {
             <div className="relative flex h-16 items-center justify-between">
               <div className="flex items-center px-2 lg:px-0">
                 <div className="flex-shrink-0">
-                  <img
+                  <Link to="/"><img
                     className="h-8 w-auto"
                     src={LOGO}
                     alt="Ruke's Emporium"
-                  />
+                  /></Link>
                 </div>
                 <div className="hidden lg:ml-6 lg:block">
                   <div className="flex space-x-4">
@@ -34,7 +34,7 @@ export default function Example() {
                       to="/items/playthings"
                       className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
-                      Playthings
+                      Toy Bin
                     </Link>
                     <Link
                       to="/items/threads"
@@ -93,7 +93,7 @@ export default function Example() {
                 <Link to="/items/grub/">Grub & Nibbles</Link>
               </Disclosure.Button>
               <Disclosure.Button className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
-                <Link to="/items/playthings">Playthings</Link>
+                <Link to="/items/playthings">Toy Bin</Link>
               </Disclosure.Button>
               <Disclosure.Button className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
                 <Link to="/items/threads">Threads</Link>
