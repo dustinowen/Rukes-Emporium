@@ -4,7 +4,7 @@ import { CartContext } from "../../../context/cart-context";
 export default function Threads(inventoryItem) {
 
   const cart = useContext(CartContext)
-  const addToCart = useContext(CartContext)
+  const { addToCart } = useContext(CartContext)
   const handleClick = (input) => {
     addToCart(input)
   }

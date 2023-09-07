@@ -16,6 +16,8 @@ export default function Cart() {
   const [isLoading, setIsLoading] = useState(true)
 
   const URL = "http://localhost:4000/products/"
+
+  let sum = 0;
   
   async function getProducts() {
     try {
@@ -127,8 +129,8 @@ export default function Cart() {
               ))}
             </ul>
           </section>
-
-          {/* Order summary */}
+{/*
+          {/* Order summary 
           <section
             aria-labelledby="summary-heading"
             className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
@@ -140,7 +142,7 @@ export default function Cart() {
             <dl className="mt-6 space-y-4">
               <div className="flex items-center justify-between">
                 <dt className="text-sm text-gray-600">Subtotal</dt>
-                <dd className="text-sm font-medium text-gray-900">$99.00</dd>
+                <dd className="text-sm font-medium text-gray-900">99</dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                 <dt className="flex items-center text-sm text-gray-600">
@@ -176,7 +178,8 @@ export default function Cart() {
                 Checkout
               </button>
             </div>
-          </section>
+          </section> 
+        */}
         </form>
       </div>
     </div>

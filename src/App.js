@@ -27,7 +27,7 @@ export default function App() {
 
   return (
     <div>
-      <CartContext.Provider value={{ cart, setCart, addToCart, removeFromCart }}>
+      <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
         <Router>
           <Navbar />
           <Routes>
