@@ -3,7 +3,7 @@ export default function Supplies(inventoryItem) {
   //passing inventoryItem as prop -> destructure array -> object
   //display each item in the return -> use id to track item added to cart
 
-  const { id, prodName, prodCategory, prodImage, prodCost } = inventoryItem;
+  const { id, prodName, prodCategory, prodImage, prodCost } = inventoryItem.data;
   
   if (prodCategory === 400) {
     return (
