@@ -1,13 +1,20 @@
+import { useContext } from "react";
+import { CartContext } from "../../../context/cart-context";
 
 export default function Threads(inventoryItem) {
-    //passing inventoryItem as prop -> destructure array -> object
-    //display each item in the return -> use id to track item added to cart
+
+  const cart = useContext(CartContext)
+  const addToCart = useContext(CartContext)
+  const handleClick = (input) => {
+    addToCart(input)
+  }
   
-  const { id, prodName, prodCategory, prodImage, prodCost } = inventoryItem.data;
-  console.log(prodCategory)
-    
-    if (prodCategory === 300) {
-      return (
+  const { _id, prodName, prodCategory, prodImage, prodCost } = inventoryItem.data;
+  
+  console.log("ID: ", _id)
+
+  if (prodCategory === 300) {
+    return (
         <div className="bg-white">
           <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
             {/* <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"> */}
@@ -23,7 +30,8 @@ export default function Threads(inventoryItem) {
                   {prodCost}
                 </p>
               
-                <button className='addToCartButton' >add to cart</button>
+              <button className='addToCartButton' onClick={() => handleClick(_id)} >add to cart</button>
+              
                 {/* LOOK UP TAILWIND CODE TO ALIGN BUTTON RIGHT */}
               </div>
             </section>
@@ -34,7 +42,7 @@ export default function Threads(inventoryItem) {
       );
       
     }
-  
+  console.log("AFTER CART ", cart)
   
   }
   

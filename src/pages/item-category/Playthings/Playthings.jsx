@@ -3,7 +3,7 @@ export default function Playthings(inventoryItem) {
   //passing inventoryItem as prop -> destructure array -> object
   //display each item in the return -> use id to track item added to cart
 
-  const { id, prodName, prodCategory, prodImage, prodCost } = inventoryItem.data;
+  const { _id, prodName, prodCategory, prodImage, prodCost } = inventoryItem.data;
   
   if (prodCategory === 200) {
     return (

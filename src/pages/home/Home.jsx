@@ -6,10 +6,10 @@ export default function Home () {
   return (
     <div className="home-container">
         <h1> this will be my home page</h1>
-        <img src={RUKE} />
+        {/* <img src={RUKE} />
       <div className="featured-items">
         <h3>Hello, I'm Ruke, and these are my carefully curated recommendations for all my pals!</h3>
-      </div>
+      </div> */}
     </div>
   );
 };

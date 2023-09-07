@@ -1,5 +1,6 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { ShoppingCartIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import LOGO from "../assets/imgs/RE_logo.png";
 
@@ -80,7 +81,7 @@ export default function Example() {
                     as="div"
                     className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                   >
-                    <Link to="/cart">Shopping Cart</Link>
+                    <Link to="/cart"><ShoppingCartIcon className="h-8 w-auto hover:bg-gray-700 hover:text-white"/></Link>
                   </Menu>
                 </div>
               </div>

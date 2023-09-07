@@ -13,13 +13,21 @@ import { CartContext } from "./context/cart-context";
 
 export default function App() {
   const { Provider: CartData } = CartContext;
-  const [cart, setCart] = useState([null]);
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (item) => {
+    setCart([...cart, item])
+    }
+
+  const removeFromCart = () => {
+
+  }
 
   console.log(CartData);
 
   return (
     <div>
-      <CartContext.Provider value={cart}>
+      <CartContext.Provider value={{ cart, setCart, addToCart, removeFromCart }}>
         <Router>
           <Navbar />
           <Routes>
