@@ -1,17 +1,21 @@
 import { useContext } from "react";
 import { CartContext } from "../../../context/cart-context";
+import Cart from "../../cart/cart";
 
 export default function Threads(inventoryItem) {
 
   const cart = useContext(CartContext)
   const { addToCart } = useContext(CartContext)
-  const handleClick = (input) => {
-    addToCart(input)
+  const { removeFromCart } = useContext(CartContext
+  )
+  const handleClickAdd = (item) => {
+    addToCart(item)
+  }
+  const handleClickRemove = (input) => {
+    removeFromCart(input)
   }
   
   const { _id, prodName, prodCategory, prodImage, prodCost } = inventoryItem.data;
-  
-  console.log("ID: ", _id)
 
   if (prodCategory === 300) {
     return (
@@ -30,7 +34,8 @@ export default function Threads(inventoryItem) {
                   {prodCost}
                 </p>
               
-              <button className='addToCartButton' onClick={() => handleClick(_id)} >add to cart</button>
+              <button className='addToCartButton' onClick={() => handleClickAdd(inventoryItem)} >add to cart</button>
+              <button className='addToCartButton' onClick={() => handleClickRemove(inventoryItem)} >remove</button>
               
                 {/* LOOK UP TAILWIND CODE TO ALIGN BUTTON RIGHT */}
               </div>

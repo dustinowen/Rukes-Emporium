@@ -1,30 +1,27 @@
-// export default function ShoppingCart() {
-
-//   return (
-//     <div className="cart">
-//       <h1> this will be the shopping cart</h1>
-//     </div>
-//   )
-// }
+import { useState, useEffect, useContext} from 'react'
+import { CartContext } from '../../context/cart-context'
 import { CheckIcon, ClockIcon, QuestionMarkCircleIcon, XMarkIcon } from '@heroicons/react/20/solid'
-import { useState, useEffect } from 'react'
+
 
 export default function Cart() {
 
   const [products, setProducts] = useState(null)
-
   const [isLoading, setIsLoading] = useState(true)
-
   const URL = "http://localhost:4000/products/"
 
-  let sum = 0;
+  const cart = useContext(CartContext)
+  const { removeFromCart } = useContext(CartContext)
+  const handleClickRemove = (input) => {
+    removeFromCart(input)
+  }
   
   async function getProducts() {
     try {
       console.log(URL)
       const response = await fetch(URL)
       const data = await response.json()
-
+      // const data = localeStorage.getItem("shoppingCart")
+      
       if (response.ok) {
         setProducts(data)
         setIsLoading(false)
@@ -107,7 +104,7 @@ export default function Cart() {
                         </select>
 
                         <div className="absolute right-0 top-0">
-                          <button type="button" className="-m-2 inline-flex p-2 text-gray-400 hover:text-gray-500">
+                          <button type="button" onClick={() => handleClickRemove(product._id)} className="-m-2 inline-flex p-2 text-gray-400 hover:text-gray-500">
                             <span className="sr-only">Remove</span>
                             <XMarkIcon className="h-5 w-5" aria-hidden="true" />
                           </button>

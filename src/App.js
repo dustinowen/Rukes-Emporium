@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/home/Home";
@@ -12,18 +12,26 @@ import ShoppingCart from "./pages/cart/cart";
 import { CartContext } from "./context/cart-context";
 
 export default function App() {
+  useEffect(() => { localStorage.setItem('shopCart', JSON.stringify(cart)) })
+  
   const { Provider: CartData } = CartContext;
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([])
 
   const addToCart = (item) => {
-    setCart([...cart, item])
+      setCart([...cart, item])
     }
 
-  const removeFromCart = () => {
-
-  }
-
-  console.log(CartData);
+  const removeFromCart = (removedItem) => {
+    const removeReq = removedItem.data._id
+    console.log("removedItem", removedItem.data._id)
+    console.log("cart test 88 ", cart)
+    for (let i = 0; i < cart.length; i++){
+      const search = cart
+      const updatedCart = search.filter((item) => item.data._id !== removeReq)
+      setCart(updatedCart)
+    }
+    localStorage.setItem('shopCart', JSON.stringify(cart))
+    }
 
   return (
     <div>
