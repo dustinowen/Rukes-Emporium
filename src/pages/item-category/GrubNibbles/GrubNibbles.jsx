@@ -5,7 +5,6 @@ export default function GrubNibbles(inventoryItem) {
 
 
     // ALL CODE BELOW HERE IS SAME:
-
   const { _id, prodName, prodCategory, prodImage, prodCost } = inventoryItem.data;
   
   if (prodCategory === 100) {

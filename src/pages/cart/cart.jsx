@@ -1,65 +1,71 @@
-import { useState, useEffect, useContext} from 'react'
-import { CartContext } from '../../context/cart-context'
-import { CheckIcon, ClockIcon, QuestionMarkCircleIcon, XMarkIcon } from '@heroicons/react/20/solid'
-
+import { useState, useEffect, useContext } from "react";
+import { CartContext } from "../../context/cart-context";
+import { CheckIcon, ClockIcon, XMarkIcon } from "@heroicons/react/20/solid";
 
 export default function Cart() {
+  const [products, setProducts] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const [products, setProducts] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const URL = "http://localhost:4000/products/"
+  const { cart, setCart } = useContext(CartContext);
+  // const { removeFromCart } = useContext(CartContext);
 
-  const cart = useContext(CartContext)
-  const { removeFromCart } = useContext(CartContext)
-  const handleClickRemove = (input) => {
-    removeFromCart(input)
-  }
-  
   async function getProducts() {
     try {
-      console.log(URL)
-      const response = await fetch(URL)
-      const data = await response.json()
-      // const data = localeStorage.getItem("shoppingCart")
-      
-      if (response.ok) {
-        setProducts(data)
-        setIsLoading(false)
+      const data = JSON.parse(localStorage.getItem("shopCart"));
+
+      if (data) {
+        setProducts(data);
+        setIsLoading(false);
       } else {
-        throw Error(response.statusText)
+        console.log("Error with data");
       }
-
-      console.log(response)
-      console.log(data)
-
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
-  useEffect(() => {
-    getProducts()
-  },[])
- 
-
-  return isLoading ?( <h3>Loading...</h3>) : (
-
-
+  
+  const removeFromCart = (removedItem) => {
+    const removeReq = removedItem.data._id
+    const updatedCart = products.filter((item) => item.data._id !== removeReq)
+    console.log("UPDATED CART ", updatedCart)
+    setProducts(updatedCart)
+    setCart(updatedCart)
+    localStorage.setItem("shopCart", JSON.stringify(updatedCart))
+  }
+    
+    const handleClickRemove = (input) => {
+      removeFromCart(input);
+      // setProducts([...products]);
+    };
+    
+    useEffect(() => {
+      getProducts();
+    }, []);
+    
+    return isLoading ? (
+      <h3>Loading...</h3>
+      ) : (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Shopping Cart</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Shopping Cart
+        </h1>
         <form className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
           <section aria-labelledby="cart-heading" className="lg:col-span-7">
             <h2 id="cart-heading" className="sr-only">
               Items in your shopping cart
             </h2>
 
-            <ul role="list" className="divide-y divide-gray-200 border-b border-t border-gray-200">
+            <ul
+              role="list"
+              className="divide-y divide-gray-200 border-b border-t border-gray-200"
+            >
               {products.map((product, productIdx) => (
                 <li key={product.id} className="flex py-6 sm:py-10">
                   <div className="flex-shrink-0">
                     <img
-                      src={product.prodImage}
+                      src={product.data.prodImage}
                       alt={product.imageAlt}
                       className="h-24 w-24 rounded-md object-cover object-center sm:h-48 sm:w-48"
                     />
@@ -70,23 +76,33 @@ export default function Cart() {
                       <div>
                         <div className="flex justify-between">
                           <h3 className="text-sm">
-                            <a href={product.href} className="font-medium text-gray-700 hover:text-gray-800">
-                              {product.prodName}
+                            <a
+                              href={product.data.href}
+                              className="font-medium text-gray-700 hover:text-gray-800"
+                            >
+                              {product.data.prodName}
                             </a>
                           </h3>
                         </div>
                         <div className="mt-1 flex text-sm">
-                          <p className="text-gray-500">{product.color}</p>
-                          {product.size ? (
-                            <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">{product.size}</p>
+                          <p className="text-gray-500">{product.data.color}</p>
+                          {product.data.size ? (
+                            <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">
+                              {product.data.size}
+                            </p>
                           ) : null}
                         </div>
-                        <p className="mt-1 text-sm font-medium text-gray-900">${product.prodCost}</p>
+                        <p className="mt-1 text-sm font-medium text-gray-900">
+                          ${product.data.prodCost}
+                        </p>
                       </div>
 
                       <div className="mt-4 sm:mt-0 sm:pr-9">
-                        <label htmlFor={`quantity-${productIdx}`} className="sr-only">
-                          Quantity, {product.prodName}
+                        <label
+                          htmlFor={`quantity-${productIdx}`}
+                          className="sr-only"
+                        >
+                          Quantity, {product.data.prodName}
                         </label>
                         <select
                           id={`quantity-${productIdx}`}
@@ -104,7 +120,11 @@ export default function Cart() {
                         </select>
 
                         <div className="absolute right-0 top-0">
-                          <button type="button" onClick={() => handleClickRemove(product._id)} className="-m-2 inline-flex p-2 text-gray-400 hover:text-gray-500">
+                          <button
+                            type="button"
+                            onClick={() => handleClickRemove(product)}
+                            className="-m-2 inline-flex p-2 text-gray-400 hover:text-gray-500"
+                          >
                             <span className="sr-only">Remove</span>
                             <XMarkIcon className="h-5 w-5" aria-hidden="true" />
                           </button>
@@ -113,20 +133,30 @@ export default function Cart() {
                     </div>
 
                     <p className="mt-4 flex space-x-2 text-sm text-gray-700">
-                      {product.inStock ? (
-                        <CheckIcon className="h-5 w-5 flex-shrink-0 text-green-500" aria-hidden="true" />
+                      {product.data.inStock ? (
+                        <CheckIcon
+                          className="h-5 w-5 flex-shrink-0 text-green-500"
+                          aria-hidden="true"
+                        />
                       ) : (
-                        <ClockIcon className="h-5 w-5 flex-shrink-0 text-gray-300" aria-hidden="true" />
+                        <ClockIcon
+                          className="h-5 w-5 flex-shrink-0 text-gray-300"
+                          aria-hidden="true"
+                        />
                       )}
 
-                      <span>{product.inStock ? 'In stock' : `Ships in ${product.leadTime}`}</span>
+                      <span>
+                        {product.data.inStock
+                          ? "In stock"
+                          : `Ships in ${product.data.leadTime}`}
+                      </span>
                     </p>
                   </div>
                 </li>
               ))}
             </ul>
           </section>
-{/*
+          {/*
           {/* Order summary 
           <section
             aria-labelledby="summary-heading"
@@ -180,5 +210,5 @@ export default function Cart() {
         </form>
       </div>
     </div>
-  )
+  );
 }

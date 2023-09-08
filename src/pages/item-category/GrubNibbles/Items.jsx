@@ -4,7 +4,6 @@ import GrubNibbles from "./GrubNibbles";
 
 export default function Items() {
   const [items, setItems] = useState(null);
-
   const [isLoading, setIsLoading] = useState(true);
 
   const URL = "http://localhost:4000/products/";
@@ -13,7 +12,7 @@ export default function Items() {
     try {
       const response = await fetch(URL);
       const data = await response.json();
-
+      
       if (response.ok) {
         setItems(data);
         setIsLoading(false);
@@ -33,13 +32,9 @@ export default function Items() {
     <h3>Loading...</h3>
   ) : (
     <div className="inventory-display">
-      <div className="inventory-title-container">
-        <h1> Parent comp to 'Grub & Nibbles' displaying items for sale:</h1>
-      </div>
-
       <div className="items">
         {items.map((inventoryItem) => (
-          <GrubNibbles data={inventoryItem} />
+          <GrubNibbles id={inventoryItem._id} data={inventoryItem} />
         ))}
       </div>
     </div>

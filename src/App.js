@@ -12,7 +12,9 @@ import ShoppingCart from "./pages/cart/cart";
 import { CartContext } from "./context/cart-context";
 
 export default function App() {
-  useEffect(() => { localStorage.setItem('shopCart', JSON.stringify(cart)) })
+  useEffect(() => {
+    localStorage.setItem('shopCart', JSON.stringify(cart))
+  })
   
   const { Provider: CartData } = CartContext;
   const [cart, setCart] = useState([])
@@ -24,18 +26,13 @@ export default function App() {
   const removeFromCart = (removedItem) => {
     const removeReq = removedItem.data._id
     console.log("removedItem", removedItem.data._id)
-    console.log("cart test 88 ", cart)
-    for (let i = 0; i < cart.length; i++){
-      const search = cart
-      const updatedCart = search.filter((item) => item.data._id !== removeReq)
-      setCart(updatedCart)
-    }
-    localStorage.setItem('shopCart', JSON.stringify(cart))
+    const updatedCart = cart.filter((item) => item.data._id !== removeReq)
+    setCart(updatedCart)
     }
 
   return (
     <div>
-      <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+      <CartContext.Provider value={{ setCart, addToCart, removeFromCart }}>
         <Router>
           <Navbar />
           <Routes>
