@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { CartContext } from "../../../context/cart-context";
-import Cart from "../../cart/cart";
 
 export default function Threads(inventoryItem) {
   const cart = useContext(CartContext);
@@ -8,7 +7,6 @@ export default function Threads(inventoryItem) {
 
   const handleClickAdd = (item) => {
     addToCart(item);
-    console.log("ADDED ", cart);
   };
 
   const { _id, prodName, prodCategory, prodImage, prodCost } =

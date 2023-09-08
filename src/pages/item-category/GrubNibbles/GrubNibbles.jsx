@@ -1,5 +1,14 @@
+import { useContext } from "react";
+import { CartContext } from "../../../context/cart-context";
+
 export default function GrubNibbles(inventoryItem) {
-  // ALL CODE BELOW HERE IS SAME:
+  const cart = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
+
+  const handleClickAdd = (item) => {
+    addToCart(item);
+  };
+
   const { _id, prodName, prodCategory, prodImage, prodCost } =
     inventoryItem.data;
 
@@ -20,7 +29,10 @@ export default function GrubNibbles(inventoryItem) {
                 {prodCost}
               </p>
 
-              <button className="addToCartButton">add to cart</button>
+              <button
+                className="addButton"
+                onClick={() => handleClickAdd(inventoryItem)}
+              >add to cart</button>
               {/* LOOK UP TAILWIND CODE TO ALIGN BUTTON RIGHT */}
             </div>
           </section>
