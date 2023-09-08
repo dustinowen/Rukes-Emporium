@@ -29,7 +29,9 @@ export default function Items() {
     getItems();
   }, []);
 
-  return (
+  return isLoading ? (
+    <h3>Loading...</h3>
+  ) : (
     <div className="items">
       {items.map((inventoryItem) => (
         <Supplies data={inventoryItem} />
