@@ -1,6 +1,7 @@
 import "./items.css";
 import { useEffect, useState } from "react";
 import Playthings from "./Playthings";
+import { Loading } from "../../loading/loading"
 
 export default function Items() {
   const [items, setItems] = useState(null);
@@ -30,7 +31,7 @@ export default function Items() {
   }, []);
 
   return isLoading ? (
-    <h3>Loading...</h3>
+    <Loading />
   ) : (
       <div className="items">
         {items.map((inventoryItem) => (

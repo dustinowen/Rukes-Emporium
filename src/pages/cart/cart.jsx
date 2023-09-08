@@ -39,7 +39,6 @@ export default function Cart() {
 
   const handleClickRemove = (input) => {
     removeFromCart(input);
-    // setProducts([...products]);
   };
 
   const cartItems = JSON.parse(localStorage.getItem("shopCart"));
@@ -76,7 +75,7 @@ export default function Cart() {
                     <img
                       src={product.data.prodImage}
                       alt={product.imageAlt}
-                      className="h-24 w-24 rounded-md object-cover object-center sm:h-48 sm:w-48"
+                      className="h-24 w-24 rounded-md object-cover object-center sm:h-24 sm:w-24"
                     />
                   </div>
 
@@ -107,7 +106,7 @@ export default function Cart() {
                       </div>
 
                       <div className="mt-4 sm:mt-0 sm:pr-9">
-                        <label
+                        {/* <label
                           htmlFor={`quantity-${productIdx}`}
                           className="sr-only"
                         >
@@ -126,7 +125,7 @@ export default function Cart() {
                           <option value={6}>6</option>
                           <option value={7}>7</option>
                           <option value={8}>8</option>
-                        </select>
+                        </select> */}
 
                         <div className="absolute right-0 top-0">
                           <button

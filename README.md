@@ -3,7 +3,8 @@
 An e-commerce website dedicated to pet (specifically dog) products. 
 
 <h4>SCREENSHOTS:</h4>
-In progress...
+<img src='./planning/assets/imgs/home_page.png' height=250px border=2/>
+<img src='./planning/assets/imgs/shopping_cart.png' height=220px border=2/>
 
 <h4>TECHNOLOGY USED:</h4>
 
@@ -14,10 +15,6 @@ In progress...
 
 * 'Ruke's Emporium' (in progress..)
 *  <a href="https://trello.com/b/srZW5XYY/p3-planning">Project Trello Board</a>
-* Wireframe (design layout chosen, examples below)
-<img src='./planning/assets/imgs/home_layout.png' height=250 border=2 />
-<img src='./planning//assets/imgs/item_page.png' height=250px border=2 />
-<img src='./planning//assets/imgs/cart.png' height=250px border=2 />
 
 
 

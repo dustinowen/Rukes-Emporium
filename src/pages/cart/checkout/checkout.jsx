@@ -1,3 +1,15 @@
+import { useEffect } from "react"
+import complete from "../../../assets/imgs/order_complete.png"
+
+function clearCart() {
+  localStorage.setItem("shopCart", "[]")
+}
 export default function Checkout() {
-  return <h1> ORDER SUBMITTED - THANK YOU</h1>;
+
+  useEffect(() => {
+    clearCart();
+  }, []);
+
+  return <img className="  " src={complete} />
+
 }

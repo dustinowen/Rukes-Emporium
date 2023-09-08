@@ -19,7 +19,7 @@ export default function Example() {
                 <div className="flex-shrink-0">
                   <Link to="/">
                     <img
-                      className="h-8 w-auto"
+                      className=" h-10 w-auto hover:scale-125"
                       src={LOGO}
                       alt="Ruke's Emporium"
                     />
@@ -29,25 +29,25 @@ export default function Example() {
                   <div className="flex space-x-4">
                     <Link
                       to="/items/grub"
-                      className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                      className="rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
                       Grub & Nibbles
                     </Link>
                     <Link
                       to="/items/playthings"
-                      className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                      className="rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
                       Toy Bin
                     </Link>
                     <Link
                       to="/items/threads"
-                      className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                      className="rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
                       Threads
                     </Link>
                     <Link
                       to="/items/supplies"
-                      className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                      className="rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                     >
                       Supplies
                     </Link>
