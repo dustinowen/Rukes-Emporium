@@ -5,6 +5,8 @@ const ProductSchema = new mongoose.Schema({
     prodCategory: Number,
     prodImage: String,
     prodCost: Number,
+    inStock: Boolean,
+    leadTime: String
 }, { timestamps: true })
 
 module.exports = mongoose.model("Products", ProductSchema)
