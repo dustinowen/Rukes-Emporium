@@ -1,8 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Gluten&display=swap");
+
 .home-container {
-  margin-left: 40vmin;
-  margin-right: 40vmin;
+  margin-left: 20vmin;
+  margin-right: 20vmin;
 }
 
-.home-container > img {
-  width: 20vmin;
+.who-is-ruke {
+  margin-top: 2vh;
+  font-family: "Gluten", cursive;
+  text-align: center;
+  font-size: x-large;
+}
+
+.all-my-friends {
+  margin-top: 5vh;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  font-size: medium;
 }

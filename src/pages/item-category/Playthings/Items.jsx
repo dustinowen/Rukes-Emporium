@@ -32,16 +32,10 @@ export default function Items() {
   return isLoading ? (
     <h3>Loading...</h3>
   ) : (
-    <div className="inventory-display">
-      <div className="inventory-title-container">
-        <h1> Parent comp to 'Playthings' displaying items for sale:</h1>
-      </div>
-
       <div className="items">
         {items.map((inventoryItem) => (
           <Playthings data={inventoryItem} />
         ))}
       </div>
-    </div>
   );
 }
