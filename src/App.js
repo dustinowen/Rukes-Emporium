@@ -7,32 +7,26 @@ import GrubNibbles from "./pages/item-category/GrubNibbles/Items";
 import Playthings from "./pages/item-category/Playthings/Items";
 import Threads from "./pages/item-category/Threads/Items";
 import Supplies from "./pages/item-category/Supplies/Items";
-
+import NotFound from "./pages/not-found/oops";
 import ShoppingCart from "./pages/cart/cart";
+import Checkout from "./pages/cart/checkout/checkout";
 import { CartContext } from "./context/cart-context";
 
 export default function App() {
   useEffect(() => {
-    localStorage.setItem('shopCart', JSON.stringify(cart))
-  })
-  
+    localStorage.setItem("shopCart", JSON.stringify(cart));
+  });
+
   const { Provider: CartData } = CartContext;
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState([]);
 
   const addToCart = (item) => {
-      setCart([...cart, item])
-    }
-
-  const removeFromCart = (removedItem) => {
-    const removeReq = removedItem.data._id
-    console.log("removedItem", removedItem.data._id)
-    const updatedCart = cart.filter((item) => item.data._id !== removeReq)
-    setCart(updatedCart)
-    }
+    setCart([...cart, item]);
+  };
 
   return (
     <div>
-      <CartContext.Provider value={{ setCart, addToCart, removeFromCart }}>
+      <CartContext.Provider value={{ setCart, addToCart }}>
         <Router>
           <Navbar />
           <Routes>
@@ -42,6 +36,8 @@ export default function App() {
             <Route path="/items/threads" element={<Threads />} />
             <Route path="/items/supplies" element={<Supplies />} />
             <Route path="/cart" element={<ShoppingCart />} />
+            <Route path="/cart/checkout" element={<Checkout />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
       </CartContext.Provider>

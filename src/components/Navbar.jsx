@@ -17,11 +17,13 @@ export default function Example() {
             <div className="relative flex h-16 items-center justify-between">
               <div className="flex items-center px-2 lg:px-0">
                 <div className="flex-shrink-0">
-                  <Link to="/"><img
-                    className="h-8 w-auto"
-                    src={LOGO}
-                    alt="Ruke's Emporium"
-                  /></Link>
+                  <Link to="/">
+                    <img
+                      className="h-8 w-auto"
+                      src={LOGO}
+                      alt="Ruke's Emporium"
+                    />
+                  </Link>
                 </div>
                 <div className="hidden lg:ml-6 lg:block">
                   <div className="flex space-x-4">
@@ -81,7 +83,9 @@ export default function Example() {
                     as="div"
                     className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                   >
-                    <Link to="/cart"><ShoppingCartIcon className="h-8 w-auto hover:bg-gray-700 hover:text-white"/></Link>
+                    <Link to="/cart">
+                      <ShoppingCartIcon className="h-8 w-auto hover:bg-gray-700 hover:text-white" />
+                    </Link>
                   </Menu>
                 </div>
               </div>

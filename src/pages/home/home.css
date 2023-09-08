@@ -1,8 +1,8 @@
 .home-container {
-    margin-left: 40vmin;
-    margin-right: 40vmin;
+  margin-left: 40vmin;
+  margin-right: 40vmin;
 }
 
 .home-container > img {
-    width: 20vmin;
+  width: 20vmin;
 }

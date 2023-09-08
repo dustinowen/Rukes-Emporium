@@ -1,12 +1,8 @@
-
 export default function GrubNibbles(inventoryItem) {
+  // ALL CODE BELOW HERE IS SAME:
+  const { _id, prodName, prodCategory, prodImage, prodCost } =
+    inventoryItem.data;
 
-  
-
-
-    // ALL CODE BELOW HERE IS SAME:
-  const { _id, prodName, prodCategory, prodImage, prodCost } = inventoryItem.data;
-  
   if (prodCategory === 100) {
     return (
       <div className="bg-white">
@@ -23,18 +19,14 @@ export default function GrubNibbles(inventoryItem) {
               <p className="mt-1 text-lg font-medium text-gray-900">
                 {prodCost}
               </p>
-            
-              <button className='addToCartButton' >add to cart</button>
+
+              <button className="addToCartButton">add to cart</button>
               {/* LOOK UP TAILWIND CODE TO ALIGN BUTTON RIGHT */}
             </div>
           </section>
-              
         </div>
         {/* </div> */}
       </div>
     );
-    
   }
-
-
 }

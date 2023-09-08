@@ -12,7 +12,7 @@ export default function Items() {
     try {
       const response = await fetch(URL);
       const data = await response.json();
-      
+
       if (response.ok) {
         setItems(data);
         setIsLoading(false);

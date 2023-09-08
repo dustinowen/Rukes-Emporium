@@ -6,10 +6,9 @@ export default function Threads(inventoryItem) {
   const cart = useContext(CartContext);
   const { addToCart } = useContext(CartContext);
 
-
   const handleClickAdd = (item) => {
     addToCart(item);
-    console.log("ADDED ", cart)
+    console.log("ADDED ", cart);
   };
 
   const { _id, prodName, prodCategory, prodImage, prodCost } =
@@ -32,9 +31,6 @@ export default function Threads(inventoryItem) {
                 {prodCost}
               </p>
 
-              
-
-          
               <button
                 className="addButton"
                 onClick={() => handleClickAdd(inventoryItem)}
@@ -42,18 +38,12 @@ export default function Threads(inventoryItem) {
                 add to cart
               </button>
 
-
-
-
               {/* <button
                 className="removeButton"
                 onClick={() => handleClickRemove(inventoryItem)}
               >
                 remove
               </button> */}
-
-
-
 
               {/* LOOK UP TAILWIND CODE TO ALIGN BUTTON RIGHT */}
             </div>

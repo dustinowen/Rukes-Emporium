@@ -1,13 +1,18 @@
 import { useState, useEffect, useContext } from "react";
 import { CartContext } from "../../context/cart-context";
-import { CheckIcon, ClockIcon, XMarkIcon } from "@heroicons/react/20/solid";
+import { Link } from "react-router-dom";
+import {
+  CheckIcon,
+  ClockIcon,
+  XMarkIcon,
+  QuestionMarkCircleIcon,
+} from "@heroicons/react/20/solid";
 
 export default function Cart() {
   const [products, setProducts] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const { cart, setCart } = useContext(CartContext);
-  // const { removeFromCart } = useContext(CartContext);
 
   async function getProducts() {
     try {
@@ -24,28 +29,32 @@ export default function Cart() {
     }
   }
 
-  
   const removeFromCart = (removedItem) => {
-    const removeReq = removedItem.data._id
-    const updatedCart = products.filter((item) => item.data._id !== removeReq)
-    console.log("UPDATED CART ", updatedCart)
-    setProducts(updatedCart)
-    setCart(updatedCart)
-    localStorage.setItem("shopCart", JSON.stringify(updatedCart))
-  }
-    
-    const handleClickRemove = (input) => {
-      removeFromCart(input);
-      // setProducts([...products]);
-    };
-    
-    useEffect(() => {
-      getProducts();
-    }, []);
-    
-    return isLoading ? (
-      <h3>Loading...</h3>
-      ) : (
+    const removeReq = removedItem.data._id;
+    const updatedCart = products.filter((item) => item.data._id !== removeReq);
+    setProducts(updatedCart);
+    setCart(updatedCart);
+    localStorage.setItem("shopCart", JSON.stringify(updatedCart));
+  };
+
+  const handleClickRemove = (input) => {
+    removeFromCart(input);
+    // setProducts([...products]);
+  };
+
+  const cartItems = JSON.parse(localStorage.getItem("shopCart"));
+  let subtotal = 0;
+  cartItems.forEach((item) => (subtotal += item.data.prodCost));
+  let tax = subtotal * 0.075;
+  let total = (subtotal + tax + 5).toFixed(2);
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  return isLoading ? (
+    <h3>Loading...</h3>
+  ) : (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -156,44 +165,53 @@ export default function Cart() {
               ))}
             </ul>
           </section>
-          {/*
-          {/* Order summary 
+
+          {/* Order summary */}
           <section
             aria-labelledby="summary-heading"
             className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
           >
-            <h2 id="summary-heading" className="text-lg font-medium text-gray-900">
+            <h2
+              id="summary-heading"
+              className="text-lg font-medium text-gray-900"
+            >
               Order summary
             </h2>
 
             <dl className="mt-6 space-y-4">
               <div className="flex items-center justify-between">
                 <dt className="text-sm text-gray-600">Subtotal</dt>
-                <dd className="text-sm font-medium text-gray-900">99</dd>
+                <dd className="text-sm font-medium text-gray-900">
+                  ${subtotal}
+                </dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                 <dt className="flex items-center text-sm text-gray-600">
-                  <span>Shipping estimate</span>
-                  <a href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
+                  <span>Shipping (flat-rate)</span>
+                  {/* <a href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Learn more about how shipping is calculated</span>
                     <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
-                  </a>
+                  </a> */}
                 </dt>
                 <dd className="text-sm font-medium text-gray-900">$5.00</dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                 <dt className="flex text-sm text-gray-600">
                   <span>Tax estimate</span>
-                  <a href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
+                  {/* <a href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Learn more about how tax is calculated</span>
                     <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
-                  </a>
+                  </a> */}
                 </dt>
-                <dd className="text-sm font-medium text-gray-900">$8.32</dd>
+                <dd className="text-sm font-medium text-gray-900">${tax}</dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-                <dt className="text-base font-medium text-gray-900">Order total</dt>
-                <dd className="text-base font-medium text-gray-900">$112.32</dd>
+                <dt className="text-base font-medium text-gray-900">
+                  Order total
+                </dt>
+                <dd className="text-base font-medium text-gray-900">
+                  ${total}
+                </dd>
               </div>
             </dl>
 
@@ -202,11 +220,10 @@ export default function Cart() {
                 type="submit"
                 className="w-full rounded-md border border-transparent bg-indigo-600 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
               >
-                Checkout
+                <Link to="/cart/checkout">Checkout</Link>
               </button>
             </div>
-          </section> 
-        */}
+          </section>
         </form>
       </div>
     </div>
