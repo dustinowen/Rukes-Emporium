@@ -67,3 +67,7 @@
     * order (ref order model)
     * order number (id)
     * order timestamp
+
+<h4>Known Issues</h4>
+* Items add to cart as separate items when they are the same product (quantity feature not implemented yet)
+* If two of the same items are in cart, when removing one both will be removed as they are being removed from localStorage by ID (will implement a increment/decrement quantity feature)

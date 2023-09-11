@@ -13,16 +13,17 @@ An e-commerce website dedicated to pet (specifically dog) products.
 
 <h4>PROJECT LINKS</h4>
 
-* 'Ruke's Emporium' (in progress..)
+* <a href="rukes-emporium.netlify.com">Ruke's Emporium</a>
 *  <a href="https://trello.com/b/srZW5XYY/p3-planning">Project Trello Board</a>
 
 
 
 <h4>NEXT STEPS (icebox features):</h4>
 
+* Implement quantity feature -> increment/decrement quantity in cart
 * Add user auth (OAUTH2)
-* Build out additional categories of products (total of seven in planning)
 * Implement payment API (Paypal or Square)
 * Implement user reviews of products
+* Implement a search function to quickly find products
 * Implement account details: order history, user reviews
 * Build parent category of 'animals' allowing more products for business expansion (dog only with initial build)
