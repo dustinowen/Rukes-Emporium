@@ -1,0 +1,13 @@
+.items {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+}
+
+.addToCartButton {
+  background-color: transparent;
+  border: 2px solid black;
+  min-width: 100px;
+}

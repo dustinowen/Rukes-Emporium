@@ -1,6 +1,7 @@
+import "./items.css";
 import { useEffect, useState } from "react";
 import GrubNibbles from "./GrubNibbles";
-import { Loading } from "../../loading/loading"
+import { Loading } from "../../loading/loading";
 
 export default function Items() {
   const [items, setItems] = useState(null);
