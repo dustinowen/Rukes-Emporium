@@ -31,12 +31,9 @@ export default function Supplies(inventoryItem) {
                 ${prodCost}
               </p>
 
-              <button
-                className=" mx-40 my-3 relative flex items-center justify-center text-center rounded-md border border-transparent bg-gray-400 px-6 py-2 text-sm font-medium text-gray-900 hover:bg-black hover:text-white"
-                onClick={() => handleClickAdd(inventoryItem)}
-              >
-                add to cart
-              </button>
+              <button className=" ml-auto mr-auto my-3 relative flex items-center justify-center text-center rounded-md border border-transparent bg-gray-400 px-6 py-2 text-sm font-medium text-gray-900 hover:bg-black hover:text-white" onClick={() => handleClickAdd(inventoryItem)}>
+                     add to cart   
+                </button>
             </div>
           </section>
         </div>
