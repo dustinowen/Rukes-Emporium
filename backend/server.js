@@ -18,7 +18,7 @@ app.use(morgan('dev'))
 app.use('/products', productsRouter)
 
 app.get('/', (req, res) => {
-    res.send("hello world")
+    res.send("Uh oh - you've been led astray! Please visit out home page: rukes-emporium.netlify.com")
 })
 
 app.listen(PORT, () => console.log(`listening on PORT ${PORT}`))
