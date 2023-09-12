@@ -14,7 +14,7 @@ An e-commerce website dedicated to pet (specifically dog) products.
 
 ##### PROJECT LINKS
 
-* <a href="rukes-emporium.netlify.com">Ruke's Emporium</a>
+* <a href="http://rukes-emporium.netlify.com">Ruke's Emporium</a>
 *  <a href="https://trello.com/b/srZW5XYY/p3-planning">Project Trello Board</a>
 
 
