@@ -22,6 +22,7 @@ export default function App() {
 
   const addToCart = (item) => {
     setCart([...cart, item]);
+    console.log(item);
   };
 
   return (

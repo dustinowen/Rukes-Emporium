@@ -39,8 +39,8 @@ export default function Cart() {
   const cartItems = JSON.parse(localStorage.getItem("shopCart"));
   let subtotal = 0;
   cartItems.forEach((item) => (subtotal += item.data.prodCost));
-  let tax = subtotal * 0.075;
-  let total = (subtotal + tax + 5).toFixed(2);
+  let tax = (subtotal * 0.075).toFixed(2)
+  let total = (subtotal + parseInt(tax) + 5).toFixed(2)
 
   useEffect(() => {
     getProducts();
@@ -101,12 +101,7 @@ export default function Cart() {
                       </div>
 
                       <div className="mt-4 sm:mt-0 sm:pr-9">
-                        <label
-                          htmlFor={`quantity-${productIdx}`}
-                          className="sr-only"
-                        >
-                          Quantity, {product.data.prodName}
-                        </label>
+
 
                         <div className="absolute right-0 top-0">
                           <button

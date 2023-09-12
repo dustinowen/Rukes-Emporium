@@ -8,7 +8,7 @@ export default function Items() {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const URL = "http://localhost:4000/products/";
+  const URL = "https://rukes-emporium-f5f19c1d148c.herokuapp.com/products/";
 
   async function getItems() {
     try {
