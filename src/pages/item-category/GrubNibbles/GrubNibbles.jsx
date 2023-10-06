@@ -1,12 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../../context/cart-context";
 
 export default function GrubNibbles(inventoryItem) {
   const cart = useContext(CartContext);
   const { addToCart } = useContext(CartContext);
 
+  const [inMyCart, setInMyCart] = useState(false);
+
   const handleClickAdd = (item) => {
     addToCart(item);
+    setInMyCart(true);
   };
 
   const { _id, prodName, prodCategory, prodImage, prodCost } =
@@ -31,9 +34,22 @@ export default function GrubNibbles(inventoryItem) {
                 ${prodCost}
               </p>
 
-              <button className=" ml-auto mr-auto my-3 relative flex items-center justify-center text-center rounded-md border border-transparent bg-gray-400 px-6 py-2 text-sm font-medium text-gray-900 hover:bg-black hover:text-white" onClick={() => handleClickAdd(inventoryItem)}>
-                     add to cart   
+              {inMyCart ? (
+                <button
+                  className=" ml-auto mr-auto my-3 relative flex items-center justify-center text-center rounded-md border border-transparent bg-blue-300 px-6 py-2 text-sm font-medium text-gray-900"
+                  onClick={() => handleClickAdd(inventoryItem)}
+                  disabled={inMyCart}
+                >
+                  added to cart
                 </button>
+              ) : (
+                <button
+                  className=" ml-auto mr-auto my-3 relative flex items-center justify-center text-center rounded-md border border-transparent bg-gray-400 px-6 py-2 text-sm font-medium text-gray-900 hover:bg-black hover:text-white"
+                  onClick={() => handleClickAdd(inventoryItem)}
+                >
+                  add to cart
+                </button>
+              )}
             </div>
           </section>
         </div>

@@ -165,7 +165,10 @@ export default function Cart() {
                   <span>Shipping (flat-rate)</span>
 
                 </dt>
-                <dd className="text-sm font-medium text-gray-900">$5.00</dd>
+                  <dd className="text-sm font-medium text-gray-900">
+                    
+                    
+                    $5.00</dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                 <dt className="flex text-sm text-gray-600">
