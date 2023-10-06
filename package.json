@@ -1,6 +1,9 @@
 {
   "name": "rukes_emporium",
   "version": "0.1.0",
+  "engines": {
+    "node": "20.5.0"
+  },
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "github:auth0/auth0-react",
