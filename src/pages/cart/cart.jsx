@@ -36,11 +36,20 @@ export default function Cart() {
     removeFromCart(input);
   };
 
+  // Calculate total using cents; toFixed(2) on total for $$$
   const cartItems = JSON.parse(localStorage.getItem("shopCart"));
-  let subtotal = 0;
-  cartItems.forEach((item) => (subtotal += item.data.prodCost));
-  let tax = (subtotal * 0.075).toFixed(2)
-  let total = (subtotal + parseInt(tax) + 5).toFixed(2)
+  let subtotalCents = 0;
+  cartItems.forEach((item) => {
+    const costInCents = Math.round(item.data.prodCost * 100);
+    subtotalCents += costInCents;
+  });
+
+  let taxCents = Math.round(subtotalCents * 0.075);
+  let shippingCents = subtotalCents > 0 ? 500 : 0;
+  let totalCents = subtotalCents + taxCents + shippingCents;
+
+  let total = (totalCents / 100).toFixed(2);
+
 
   useEffect(() => {
     getProducts();
@@ -101,8 +110,6 @@ export default function Cart() {
                       </div>
 
                       <div className="mt-4 sm:mt-0 sm:pr-9">
-
-
                         <div className="absolute right-0 top-0">
                           <button
                             type="button"
@@ -157,25 +164,24 @@ export default function Cart() {
               <div className="flex items-center justify-between">
                 <dt className="text-sm text-gray-600">Subtotal</dt>
                 <dd className="text-sm font-medium text-gray-900">
-                  ${subtotal}
+                  ${(subtotalCents / 100).toFixed(2)}
                 </dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                 <dt className="flex items-center text-sm text-gray-600">
                   <span>Shipping (flat-rate)</span>
-
                 </dt>
-                  <dd className="text-sm font-medium text-gray-900">
-                    
-                    
-                    $5.00</dd>
+                <dd className="text-sm font-medium text-gray-900">
+                  ${(shippingCents / 100).toFixed(2)}
+                </dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                 <dt className="flex text-sm text-gray-600">
                   <span>Tax estimate</span>
-
                 </dt>
-                <dd className="text-sm font-medium text-gray-900">${tax}</dd>
+                <dd className="text-sm font-medium text-gray-900">
+                  ${(taxCents / 100).toFixed(2)}
+                </dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                 <dt className="text-base font-medium text-gray-900">
