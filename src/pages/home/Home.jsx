@@ -5,7 +5,7 @@ import RUKE from "../../assets/imgs/welcome.png";
 export default function Home() {
   return (
     <div className="home-container">
-      <img src={RUKE} />
+      <img src={RUKE} alt="Ruke" />
       <div className="who-is-ruke">
         <h3>
           Hey folks, I'm Ruke, and I've fetched a tail-wagging treasure trove of

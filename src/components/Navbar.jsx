@@ -1,12 +1,12 @@
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Disclosure, Menu } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ShoppingCartIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import LOGO from "../assets/imgs/RE_logo.png";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+// function classNames(...classes) {
+//   return classes.filter(Boolean).join(" ");
+// }
 
 export default function Example() {
   return (
